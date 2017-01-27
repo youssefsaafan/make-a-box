@@ -10,4 +10,42 @@
 # input parameters to vary the size of the box.
 #
 # *************************************************
+# Pseudo Code
 
+def inputs():
+  """This requests and receives the inputs from the user."""
+  # This function should make sure the inputs are in the desired
+  # format?
+  # Inputs needed:
+  #   size: h, w, l
+  #   thickness of sheets: t
+  #   size of bolts: 
+  #     length: bl
+  #     diameter: bd
+  # I am not sure if this is all or not, please add more if needed.
+  
+# I am thinking that perhaps we should have functions as follows:
+#         a) Takes in the size parameters and outputs the coordinates
+#         of the max corners on each side.
+#         b) Creates the jagged edges/crenellations?
+#         c) Creates the pattern needed for the bolts
+#         d) Takes all the coordinates and creates a line pattern 
+#         linking them.
+#
+# The final pattern should I ideally be output as a string, so that
+# it can easily be written to the svg file.
+  
+def write_to_file(string):
+  """This writes the input to an svg file."""
+  svg_file = open('laserbox.svg','wU')
+  # This opens and creates a svg file.
+  svg_file.write(str('<?xml version="1.0" encoding="UTF-8" ?>') + '\n')
+  # This writes the first line of the svg file (supposedly).
+  svg_file.write(str('<svg xmlns="http://www.w3.org/2000/svg" version="1.1">')+'\n')
+  # This writes the second line of the svg file.
+  svg_file.write(str(string) + '\n')
+  # This writes the string that was inputted into the file.
+  svg_file.close()
+  # This closes the file.
+  
+# Note: I have not tested this; I do not know if it works.
