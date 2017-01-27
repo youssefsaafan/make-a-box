@@ -1,3 +1,13 @@
-svg
-Kyle's Edit
-Yadir's edit
+# ************************************************
+# 
+# Project: Make-A-Box
+# Class: Digital Manufacturing
+# Date: 27th Jan 2017
+# Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+#
+# Aim: To output an svg file that can be used on a laser-cutter
+# to create a box that just needs to be assembled. The user can 
+# input parameters to vary the size of the box.
+#
+# *************************************************
+
