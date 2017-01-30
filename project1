@@ -19,6 +19,7 @@ def inputs():
   % Inputs needed:
   %   size: h, w, l
   %   thickness of sheets: t
+  %   number of bolts: 1,2,3
   %   size of bolts: 
   %     length: bl
   %     diameter: bd Size 4 (0.112") Size 6 (0.138")
