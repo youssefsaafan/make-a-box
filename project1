@@ -21,7 +21,7 @@ def inputs():
   #   thickness of sheets: t
   #   size of bolts: 
   #     length: bl
-  #     diameter: bd
+  #     diameter: bd Size 4 (0.112") Size 6 (0.138")
   # I am not sure if this is all or not, please add more if needed.
   
 # I am thinking that perhaps we should have functions as follows:
