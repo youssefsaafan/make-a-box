@@ -1,1 +1,33 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Side
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Side outputs the text for one side of the box.
+%
+% *************************************************
 
+function side(t,h,w,b,cren)
+  h = h-t % This subtracts the thickness of the sheet from the height.
+  
+  c = h/t
+  if c =/ int;
+    if cren == 1,
+      c = int(c)
+    if cren == 0,
+      c = int(c)-1 
+  %This determines the number of crenellations
+  
+ end
+  
+ 1) generate a list of coordinates
+ 2) insert that list into a svg string
+ 
+  <polyline points="0,0 0,10 10,10 10,20 0,20 0,30 10,30 " stroke="black" stroke-width="4" fill="none" />
