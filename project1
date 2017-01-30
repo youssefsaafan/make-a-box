@@ -12,7 +12,7 @@
 % *************************************************
 % Pseudo Code
 
-def inputs():
+function inputs():
   """This requests and receives the inputs from the user."""
   % This function should make sure the inputs are in the desired
   % format?
@@ -36,7 +36,7 @@ def inputs():
 % The final pattern should I ideally be output as a string, so that
 % it can easily be written to the svg file.
   
-def write_to_file(string):
+function write_to_file(string):
   """This writes the input to an svg file."""
   svg_file = open('laserbox.svg','wU')
   % This opens and creates a svg file.
