@@ -23,30 +23,40 @@ function[L] = side(t,h,w,b,cren)
   c = h/t;
   if rem(c,1) == 0
     if cren == 1
-      c = c;
+      c = c
     end
     if cren == 0
       c = c-1; 
     end
   end
   %This determines the number of crenellations
-  m = h/c;
+  m = h/c
   
   %Let the initial corner be 0,0
   
   L = [];
+  % This creates an empty array.
+  
+  for i = (c-2):-2:1
+   L = [L;[t,i*m]];
+   L = [L;[0,i*m]];
+   L = [L;[0,(i-1)*m]];
+   L = [L;[t,(i-1)*m]];
+  end 
+  % This creates the coordinates for the first set of crenellations.
+  
   L = [L;[0,0]];
   w0 = w - t;
   L = [L;[w0,0]];
-  %This adds the cooridinates for the first line of the polyline to the list.
+  %This adds the coordinates for the top of the side to the list.
   
-  for i = 1:(c-1)
+  for i = 1:2:(c-1)
    L = [L;[w0,i*m]];
    L = [L;[w,i*m]];
    L = [L;[w,(i+1)*m]];
-   i = i+1;
+   L = [L;[w0,(i+1)*m]];
   end 
-  % This generates the rest of the coordinates of the crenellations.
+  % This generates the coordinates for the second set of crenellations.
   
  end
   
