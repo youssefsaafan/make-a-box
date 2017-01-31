@@ -24,7 +24,24 @@ function side(t,h,w,b,cren)
     if cren == 0,
       c = int(c)-1 
   %This determines the number of crenellations
+  m = h/c
   
+  %Let the initial corner be 0,0
+  
+  L = list()
+  L.append((0,0))
+  w0 = w - t
+  L.append((int(w0),0))
+  %This adds the cooridinates for the first line of the polyline to the list.
+  
+  for i in range(1,c-1);
+   L.append((int(w0),i*m))
+   L.append((int(w),i*m))
+   L.append((int(w),(i+1)*m))
+   L.append((int(w0),(i+1)*m))
+   i = i+1
+  
+  return(L)
  end
   
  1) generate a list of coordinates
