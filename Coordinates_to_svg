@@ -16,7 +16,7 @@
 %
 % *************************************************
 
-function c2s(L)
+function[text] = c2s(L)
     % This function inserts a list of numbers into text
     % creating a polyline in svg.
     
@@ -30,7 +30,7 @@ function c2s(L)
     end
     % This adds each coordinate pair to the list.
     
-    text_f = ['" stroke="black" stroke-width="4" fill="none" /n>'];
+    text_f = ['" stroke="red" stroke-width="1" fill="none">\n'];
     text = [text,text_f];
     % This creates the end of the text line.
     text
