@@ -14,34 +14,41 @@
 %
 % *************************************************
 
-function side(t,h,w,b,cren)
-  h = h-t % This subtracts the thickness of the sheet from the height.
+function side_test_1(t,h,w,b,cren)
+  h = h-t; 
+  % This subtracts the thickness of the sheet from the height.
   
-  c = h/t
-  if c =/ int;
-    if cren == 1,
-      c = int(c)
-    if cren == 0,
-      c = int(c)-1 
+  c = h/t;
+  if rem(c,1) == 0
+    if cren == 1
+      c = c;
+    end
+    if cren == 0
+      c = c-1; 
+    end
+  end
   %This determines the number of crenellations
-  m = h/c
+  m = h/c;
   
   %Let the initial corner be 0,0
   
-  L = list()
-  L.append((0,0))
-  w0 = w - t
-  L.append((int(w0),0))
+  L = [];
+  L = [L;[0,0]];
+  w0 = w - t;
+  L = [L;[w0,0]];
   %This adds the cooridinates for the first line of the polyline to the list.
   
-  for i in range(1,c-1);
-   L.append((int(w0),i*m))
-   L.append((int(w),i*m))
-   L.append((int(w),(i+1)*m))
-   L.append((int(w0),(i+1)*m))
-   i = i+1
+  for i = 1:(c-1)
+   L = [L;[w0,i*m]];
+   L = [L;[w,i*m]];
+   L = [L;[w,(i+1)*m]];
+   %L = [L;[w0,(i+1)*m]];
+   i = i+1;
+  end 
+  % This adds the coordinates for the crenellations going down one side
   
-  return(L)
+  L
+  % This outputs the list of coordinates.
  end
   
  1) generate a list of coordinates
