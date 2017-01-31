@@ -16,7 +16,7 @@
 %
 % *************************************************
 
-function side(t,h,w,b,cren)
+function[L] = side(t,h,w,b,cren)
   h = h-t; 
   % This subtracts the thickness of the sheet from the height.
   
@@ -29,31 +29,24 @@ function side(t,h,w,b,cren)
       c = c-1; 
     end
   end
-  % This determines the number of crenellations
+  %This determines the number of crenellations
   m = h/c;
   
-  % Let the initial corner be 0,0
+  %Let the initial corner be 0,0
   
   L = [];
   L = [L;[0,0]];
   w0 = w - t;
   L = [L;[w0,0]];
-  % This adds the cooridinates for the first line of the polyline to the list.
+  %This adds the cooridinates for the first line of the polyline to the list.
   
   for i = 1:(c-1)
    L = [L;[w0,i*m]];
    L = [L;[w,i*m]];
    L = [L;[w,(i+1)*m]];
-   %L = [L;[w0,(i+1)*m]];
    i = i+1;
   end 
-  % This adds the coordinates for the crenellations going down one side
+  % This generates the rest of the coordinates of the crenellations.
   
-  L
-  % This outputs the list of coordinates.
  end
   
- 1) generate a list of coordinates
- 2) insert that list into a svg string
- 
-  <polyline points="0,0 0,10 10,10 10,20 0,20 0,30 10,30 " stroke="black" stroke-width="4" fill="none" />
