@@ -15,6 +15,7 @@
 % Crenellations generates a list of coordinates for one side of a side.
 %
 % *************************************************
+% Note: I am using "crenellations" to refer to mortise and tenon joints.
 
 function[L] = side(t,h,w,b,cren)
   h = h-t; 
