@@ -1,1 +1,20 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Side
+% Subfile: Coordinates_to_svg
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Side outputs the text for one side of the box.
+% Coordinates turns a list into an svg polyline.
+%
+% *************************************************
 
+function c2s(L)
+  
