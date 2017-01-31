@@ -2,6 +2,7 @@
 % 
 % Project: Make-A-Box
 % File: Side
+% Subfile: Crenellations
 % Class: Digital Manufacturing
 % Date: 27th Jan 2017
 % Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
@@ -11,10 +12,11 @@
 % input parameters to vary the size of the box.
 %
 % Side outputs the text for one side of the box.
+% Crenellations generates a list of coordinates for one side of a side.
 %
 % *************************************************
 
-function side_test_1(t,h,w,b,cren)
+function side(t,h,w,b,cren)
   h = h-t; 
   % This subtracts the thickness of the sheet from the height.
   
@@ -27,16 +29,16 @@ function side_test_1(t,h,w,b,cren)
       c = c-1; 
     end
   end
-  %This determines the number of crenellations
+  % This determines the number of crenellations
   m = h/c;
   
-  %Let the initial corner be 0,0
+  % Let the initial corner be 0,0
   
   L = [];
   L = [L;[0,0]];
   w0 = w - t;
   L = [L;[w0,0]];
-  %This adds the cooridinates for the first line of the polyline to the list.
+  % This adds the cooridinates for the first line of the polyline to the list.
   
   for i = 1:(c-1)
    L = [L;[w0,i*m]];
