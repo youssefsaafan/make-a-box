@@ -16,6 +16,14 @@
 % ************************************************
 <svg width="4in" height="4in" viewBox="0 0 2 6">
   <!--line x1=".5in" y1="4in" x2=".5in" y2=".5in" stroke="blue" stroke-width="2"/-->
-  <path class="v-nutsandbolts" d="M.75,4 v -1 m -0.069,0 v -0.25 m0.069,0 v-0.25 m.112,0 v.25 m0,.25 v 1 m0.069,-1 v-0.25" stroke="red" stroke-width=".05"/>
+  <!--Bolt sizes: Size 4 (0.112") Size 6 (0.138")
+      Bolt Lengths: (.25", .375", .5" .625")
+      Nut Size: 4-40: .25 thick
+                      .09375 wide
+                6-32: .109375 thick
+                      ..3125 wide
+       Sheet thickness: .125, .1875, .25/-->
+  <path class="v-nutsandbolts" d="M.75,4 v -.5 m -0.069,0 v -0.25 m0.069,0 v-0.25 m.112,0 v.25 m0,.25 v .5 m0.069,-.5 v-0.25" stroke="red" stroke-width=".05"/>
+  <path class="h-nutsandbolts" d="M.681,3.5 h .069 m 0.112,0 h .069 m0,-.25 h -.069 m-.112,0 h-.069 m.0629,-.25 h.112" stroke="blue" stroke-width=".05"/>
   
 </svg>
