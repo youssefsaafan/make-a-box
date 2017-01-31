@@ -1,0 +1,21 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Side
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Side outputs for the nut and bolt cut outs
+%
+% ************************************************
+% ************************************************
+<svg width="4in" height="4in" viewBox="0 0 2 6">
+  <!--line x1=".5in" y1="4in" x2=".5in" y2=".5in" stroke="blue" stroke-width="2"/-->
+  <path class="v-nutsandbolts" d="M.75,4 v -1 m -0.069,0 v -0.25 m0.069,0 v-0.25 m.112,0 v.25 m0,.25 v 1 m0.069,-1 v-0.25" stroke="red" stroke-width=".05"/>
+  
+</svg>
