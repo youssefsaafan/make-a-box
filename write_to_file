@@ -1,0 +1,36 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Side
+% Subfile: Write_to_file
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Crenellations outputs the text for one side of the box.
+% Coordinates turns a list into an svg polyline.
+% Write_to_file exports a given text string to a svg file,
+% which it creates called "laserbox.svg"
+%
+% *************************************************
+
+
+function write_to_file(string)
+  %This writes the input to an svg file.
+  
+  svg_file = fopen('laserbox.svg','w');
+  % This opens and creates a svg file.
+  fprintf(svg_file,'<?xml version="1.0" encoding="UTF-8" ?>\n');
+  % This writes the first line of the svg file.
+  fprintf(svg_file,'<svg xmlns="http://www.w3.org/2000/svg" version="1.1">\n');
+  % This writes the second line of the svg file.
+  fprintf(svg_file, string,'\n');
+  % This writes the string that was inputted into the file.
+  fprintf(svg_file, '</svg>');
+  fclose(svg_file);
+  % This closes the file.
+end
