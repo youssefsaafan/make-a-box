@@ -14,16 +14,78 @@
 %
 % ************************************************
 % ************************************************
-<svg width="4in" height="4in" viewBox="0 0 2 6">
-  <!--line x1=".5in" y1="4in" x2=".5in" y2=".5in" stroke="blue" stroke-width="2"/-->
-  <!--Bolt sizes: Size 4 (0.112") Size 6 (0.138")
-      Bolt Lengths: (.25", .375", .5" .625")
-      Nut Size: 4-40: .25 thick
-                      .09375 wide
-                6-32: .109375 thick
-                      ..3125 wide
-       Sheet thickness: .125, .1875, .25/-->
-  <path class="v-nutsandbolts" d="M.75,4 v -.5 m -0.069,0 v -0.25 m0.069,0 v-0.25 m.112,0 v.25 m0,.25 v .5 m0.069,-.5 v-0.25" stroke="red" stroke-width=".05"/>
-  <path class="h-nutsandbolts" d="M.681,3.5 h .069 m 0.112,0 h .069 m0,-.25 h -.069 m-.112,0 h-.069 m.0629,-.25 h.112" stroke="blue" stroke-width=".05"/>
-  
-</svg>
+function [XR, YR ] = Right_Fastner( d, l, t, w, boxw, boxl, tm )
+%cutting for width faces
+c3 = boxw - (t + tm); %center of right cut
+%x-cooridinates
+x1 = c3 - d/2;
+x2 = x1;
+x3 = c3 - w/2;
+x4 = x3;
+x5 = c3 + (w/2);
+x6 = x5;
+x7 = c3 + (d/2);
+x8 = x7;
+%y-coordinates
+y1 = 0;
+y2 = l-t;
+y3 = y2;
+y4 = l;
+y5 = y4;
+y6 = y2;
+y7 = y2;
+y8 = y1;
+%Arrays of first set of cooridinates
+XR = [x1 x2 x3 x4 x5 x6 x7 x8];
+YR = [y1 y2 y3 y4 y5 y6 y7 y8];
+end
+function [ XM, YM ] = Middle_Fastner( d, l, t, w, boxw,tm)
+%cutting for width faces
+c2 = boxw/2; %center of middle cut
+%x cooridinates
+x1 = c2 - d/2;
+x2 = x1;
+x3 = c2 - w/2;
+x4 = x3;
+x5 = c2 + (w/2);
+x6 = x5;
+x7 = c2 + (d/2);
+x8 = x7;
+%y-coordinates
+y1 = 0;
+y2 = l-t;
+y3 = y2;
+y4 = l;
+y5 = y4;
+y6 = y2;
+y7 = y2;
+y8 = y1;
+%Arrays of Middle set of cooridinates
+XM = [x1 x2 x3 x4 x5 x6 x7 x8];
+YM = [y1 y2 y3 y4 y5 y6 y7 y8];
+end
+function [ XL, YL ] = Left_Fastner( d, l, t, w, boxw, boxl, tm)
+%cutting for width faces
+c1 = t + tm; %center of left cut
+%x-cooridinates
+x1 = c1 - d/2;
+x2 = x1;
+x3 = c1 - w/2;
+x4 = x3;
+x5 = c1 + (w/2);
+x6 = x5;
+x7 = c1 + (d/2);
+x8 = x7;
+%y-coordinates
+y1 = 0;
+y2 = l-t;
+y3 = y2;
+y4 = l;
+y5 = y4;
+y6 = y2;
+y7 = y2;
+y8 = y1;
+%Arrays of first set of cooridinates
+XL = [x1 x2 x3 x4 x5 x6 x7 x8];
+YL = [y1 y2 y3 y4 y5 y6 y7 y8];
+end
