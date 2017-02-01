@@ -89,3 +89,23 @@ y8 = y1;
 XL = [x1 x2 x3 x4 x5 x6 x7 x8];
 YL = [y1 y2 y3 y4 y5 y6 y7 y8];
 end
+%Nuts and Bolts Cutting
+
+%parameters pulled from array
+d = 0.112; %bolt diameter from array
+l = .25; %bolt length from array
+t = .109375; %nut thickness from array
+w = .3125; %nut width from array
+boxw = 4; % box width from array
+boxl = 3; % box length from array
+nc = 3; %number of cuts from array
+tm = .125; %thickness of material
+
+[XR, YR] = Right_Fastner( d, l, t, w, boxw, boxl, tm );
+[XM, YM] = Middle_Fastner( d, l, t, w, boxw,tm);
+[XL, YL] = Left_Fastner( d, l, t, w, boxw, boxl, tm);
+
+axis([0 4 0 1]);
+line((XM),(YM),'Color', 'red');
+line((XL),(YL),'Color', 'blue');
+line((XR),(YR),'Color', 'green');
