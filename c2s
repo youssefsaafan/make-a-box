@@ -1,0 +1,39 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Side
+% Subfile: Coordinates_to_svg
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Side outputs the text for one side of the box.
+% Coordinates turns a list into an svg polyline.
+%
+% *************************************************
+
+function[text] = c2s(L)
+    % This function inserts a list of numbers into text
+    % creating a polyline in svg.
+    
+    text = ['<polygon points="',num2str(L(1,1)),',',num2str(L(1,2))];
+    % This creates the start of the text.
+    
+    for i = 2:length(L)
+        text_i = [' ',num2str(L(i,1)),',',num2str(L(i,2))];
+        text = [text,text_i];
+        i = i+1;
+    end
+    % This adds each coordinate pair to the list.
+    
+    text_f = ['" stroke="red" stroke-width="0.01" fill="none">\n'];
+    text = [text,text_f];
+    % This creates the end of the text line.
+    text;
+    % This returns the string of text.
+end
+    
