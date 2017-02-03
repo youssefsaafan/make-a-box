@@ -1,0 +1,91 @@
+>> % ************************************************
+% 
+% Project: Make-A-Box
+% File: Side
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Side outputs for the nut and bolt cut outs
+%
+% ************************************************
+% ************************************************
+function [XR, YR ] = Right_Hole( d, l, t, w, boxw, boxl, tm )
+%cutting for width faces
+c3 = boxw - (t + tm); %center of right hole
+%x-cooridinates
+x1 = c3 - d/2;
+x2 = x1;
+x3 = c3 - w/2;
+x4 = x3;
+x5 = c3 + (w/2);
+x6 = x5;
+x7 = c3 + (d/2);
+x8 = x7;
+%y-coordinates
+y1 = c3 - d/2;
+y2 = x1;
+y3 = c3 - l/2;
+y4 = x3;
+y5 = c3 - w/2;
+y6 = x5;
+y7 = c3 + (d/2);
+y8 = x7;
+%Arrays of first set of cooridinates
+XR = [x1 x2 x3 x4 x5 x6 x7 x8];
+YR = [y1 y2 y3 y4 y5 y6 y7 y8];
+end
+function [ XM, YM ] = Middle_Hole( d, l, t, w, boxw,boxl,tm)
+%cutting for width faces
+c2 = boxw/2; %center of middle hole
+%x cooridinates
+x1 = c2 - d/2;
+x2 = x1;
+x3 = c2 - w/2;
+x4 = x3;
+x5 = c2 + (w/2);
+x6 = x5;
+x7 = c2 + (d/2);
+x8 = x7;
+%y-coordinates
+y1 = c2 - d/2;
+y2 = y1;
+y3 = c2- l/2;
+y4 = y3
+y5 = c2 + (l/2);
+y6 = y5;
+y7 = c2 + (d/2);
+y8 = y7;
+%Arrays of Middle set of cooridinates
+XM = [x1 x2 x3 x4 x5 x6 x7 x8];
+YM = [y1 y2 y3 y4 y5 y6 y7 y8];
+end
+function [ XL, YL ] = Left_Hole( d, l, t, w, boxw, boxl, tm)
+%cutting for width faces
+c1 = t + tm; %center of left hole
+%x-cooridinates
+x1 = c1 - d/2;
+x2 = x1;
+x3 = c1 - w/2;
+x4 = x3;
+x5 = c1 + (w/2);
+x6 = x5;
+x7 = c1 + (d/2);
+x8 = x7;
+%y-coordinates
+y1 = c1 - d/2;
+y2 = y1;
+y3 = c1 - l/2;
+y4 = y3;
+y5 = c1 + l/2;
+y6 = y5;
+y7 = y1 + d/2;
+y8 = y7;
+%Arrays of first set of cooridinates
+XL = [x1 x2 x3 x4 x5 x6 x7 x8];
+YL = [y1 y2 y3 y4 y5 y6 y7 y8];
+end
