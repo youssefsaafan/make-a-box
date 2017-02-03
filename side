@@ -14,44 +14,99 @@
 %
 % *************************************************
 
-function side_test_1(t,h,w,b,cren)
+function[L] = side(t,h,w,n)
+  % t is the thickness of the material, used to determine
+  %     the size of the mortise and tenons.
+  % h is the height of the box
+  % w is the width of this side
+  % n is the number of bolts used on this side
+  
   h = h-t; 
   % This subtracts the thickness of the sheet from the height.
   
   c = h/t;
-  if rem(c,1) == 0
-    if cren == 1
-      c = c;
-    end
-    if cren == 0
-      c = c-1; 
-    end
-  end
   %This determines the number of crenellations
   m = h/c;
   
   %Let the initial corner be 0,0
   
   L = [];
+  % This creates an empty array.
+  
+  for i = (c-2):-2:1
+   L = [L;[t,i*m]];
+   L = [L;[0,i*m]];
+   L = [L;[0,(i-1)*m]];
+   L = [L;[t,(i-1)*m]];
+  end 
+  % This creates the coordinates for the first set of crenellations.
+  
   L = [L;[0,0]];
   w0 = w - t;
   L = [L;[w0,0]];
-  %This adds the cooridinates for the first line of the polyline to the list.
+  %This adds the coordinates for the top of the side to the list.
   
-  for i = 1:(c-1)
+  for i = 1:2:(c-1)
    L = [L;[w0,i*m]];
    L = [L;[w,i*m]];
    L = [L;[w,(i+1)*m]];
-   %L = [L;[w0,(i+1)*m]];
-   i = i+1;
+   L = [L;[w0,(i+1)*m]];
   end 
-  % This adds the coordinates for the crenellations going down one side
+  % This generates the coordinates for the second set of crenellations.
   
-  L
-  % This outputs the list of coordinates.
+  % Nuts and Bolts
+  
+  %parameters pulled from array, needed for bolts
+  d = 0.112; %bolt diameter from array
+  l = .25; %bolt length from array
+  T = .109375; %nut thickness from array
+  W = .3125; %nut width from array
+  boxw = w; % box width from array, 4
+  boxl = 3; % box length from array
+  nc = 3; %number of cuts from array
+  tm = 3*t; %thickness of material, .125
+
+  [XR, YR] = Right_Fastner( d, l, T, W, boxw, boxl, tm );
+  [XM, YM] = Middle_Fastner( d, l, T, W, boxw,tm);
+  [XL, YL] = Left_Fastner( d, l, T, W, boxw, boxl, tm);
+  % These generate the coordinates for the nut and bolt cut-outs.
+  
+  if n == 1
+      L = [L;[XM(length(XM)),(h-t-YM(length(YM)))]];
+      for i = (length(XM)-1):-1:1
+          L = [L;[XM(i),(h-t-YM(i))]];
+      end
+  end
+  % This inserts the fastner cut-out for one fastner.
+  
+  if n == 2
+      for i = (length(XR)):-1:1
+          L = [L;[XR(i),(h-t-YR(i))]];
+      end
+      % This adds the right fastner.
+      for i = (length(XL)):-1:1
+          L = [L;[XL(i),(h-t-YL(i))]];
+      end
+      % This adds the left fastner.
+  end
+  % This inserts the fastner cut-outs for two fastners.
+  
+  if n == 3
+      for i = (length(XR)):-1:1
+          L = [L;[XR(i),(h-t-YR(i))]];
+      end
+      % This adds the right fastner.
+      for i = (length(XM)):-1:1
+          L = [L;[XM(i),(h-t-YM(i))]];
+      end
+      % This adds the middle fastner.
+      for i = (length(XL)):-1:1
+          L = [L;[XL(i),(h-t-YL(i))]];
+      end
+      % This adds the left fastner.
+  end
+  % This inserts the fastner cut-outs for three fastners.
+  
+  L = [L;[t,h-t]];
+  % This adds the point of the final coordinate.
  end
-  
- 1) generate a list of coordinates
- 2) insert that list into a svg string
- 
-  <polyline points="0,0 0,10 10,10 10,20 0,20 0,30 10,30 " stroke="black" stroke-width="4" fill="none" />
