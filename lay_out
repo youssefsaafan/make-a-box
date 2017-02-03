@@ -1,0 +1,76 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Side
+% Subfile: Lay_out
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Side outputs the text for one side of the box.
+% Lay_out should aggregate the text for each of the sides togther,
+%   in such a way that they do not overlap.
+% c2s turns a list into an svg polyline.
+% Write_to_file exports a given text string to a svg file,
+%   which it creates called "laserbox.svg"
+%
+% *************************************************
+
+function[text] = lay_out(t,h,w,l,n)
+    % This function creates one text/svg code for the whole box.
+    
+    % t is the thickness of the material
+    % h is the height of the box
+    % w is the width of the box
+    % l is the length of the box
+    % n is the number of bolts on each side of the box
+
+    % If the box is h x w x l, where h is the height
+    S1 = side(t,h,w,n);
+    S3 = side(t,h,w,n);
+    S2 = side(t,h,l,n);
+    S4 = side(t,h,l,n);
+
+    spac = 0.125;
+    % This defines the spacing between each cutout
+
+    for i = 1:length(S1)
+        S1(i,2) = S1(i,2) + spac;
+        S1(i,1) = S1(i,1) + spac;
+    end
+    % This offsets the first side by "spac"
+    text1 = c2s(S1);
+    % This creates a line of text for the first side.
+
+    for i = 1:length(S3)
+        S3(i,2) = S3(i,2) + (2*spac + h);
+        S3(i,1) = S3(i,1) + spac;
+    end
+    % This lays side 3 to the right of side 1.
+    text2 = c2s(S3);
+    % This creates a line of text for side 3.
+    
+    for i = 1:length(S2)
+        S2(i,1) = S2(i,1) + (2*spac + w);
+        S2(i,2) = S2(i,2) + spac;
+    end
+    % This lays side 2 below side 1.
+    text3 = c2s(S2);
+    % This creates a line of text for side 2.
+    
+    for i = 1:length(S4)
+        S4(i,1) = S4(i,1) + (2*spac + w);
+        S4(i,2) = S4(i,2) + (2*spac + h);
+    end
+    % This lays side 4 below side 3.
+    text4 = c2s(S4);
+    % This creates a line of text for side 4.
+    
+    text = [text1,text2,text3,text4];
+    % This combines the text
+end
+
