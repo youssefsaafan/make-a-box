@@ -1,0 +1,41 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Right_Fastner
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Right_Fastner creates the coordinates for the fastner on the right.
+%
+% *************************************************
+
+function [XR, YR ] = Right_Fastner( d, l, t, w, boxw, boxl, tm )
+    %cutting for width faces
+    c3 = boxw - (t + tm); %center of right cut
+    %x-cooridinates
+    x1 = c3 - d/2;
+    x2 = x1;
+    x3 = c3 - w/2;
+    x4 = x3;
+    x5 = c3 + (w/2);
+    x6 = x5;
+    x7 = c3 + (d/2);
+    x8 = x7;
+    %y-coordinates
+    y1 = 0;
+    y2 = l-t;
+    y3 = y2;
+    y4 = l;
+    y5 = y4;
+    y6 = y2;
+    y7 = y2;
+    y8 = y1;
+    %Arrays of first set of cooridinates
+    XR = [x1 x2 x3 x4 x5 x6 x7 x8];
+    YR = [y1 y2 y3 y4 y5 y6 y7 y8];
+end
