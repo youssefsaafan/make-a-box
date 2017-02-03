@@ -1,4 +1,4 @@
-prompt={'Height (in)', 'Wdith (in)','Length (in)','thickness (in)', 'Bolt Count (Enter 1-3)','Laser kerf','Sides (Enter 5 or 6 for a open or closed box, respectively.)'};
+prompt={'Height (in)', 'Wdith (in)','Length (in)','thickness (in)', 'Bolt Count per Side (Enter 1-3)','Laser kerf','Sides (Enter 5 or 6 for a open or closed box, respectively.)'};
 title='Box Maker';
 answer=inputdlg(prompt,title);
 h=str2num(answer{1});
