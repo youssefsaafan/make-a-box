@@ -1,0 +1,60 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Bottom
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Bottom outputs the text for the bottom of the box.
+%
+% *************************************************
+
+function[text] = bottom(h,w,l,t,n)
+    % This function turns a list of hole coordinates into the svg text
+    %       needed to generate the bottom piece.
+    % h is the height of the box
+    % w is the width of the box
+    % l is the length of the box
+    % t is the thickness of the material
+    % n is the number of fasteners per side
+    
+    spac = 0.125;
+    % This designates the piece offset from the side
+    % MAKE SURE THIS MATCHES WHAT IS IN LAY_OUT
+    
+    texta = ['<rect x="',num2str(spac),'" y="',num2str(2*h),'" width="'];
+    textb = [num2str(w),'" height="',num2str(l),'" '];
+    textc = ['stroke="red" stroke-width="0.01" fill="none"/>\n'];
+    text = [texta,textb,textc];
+    % This creates the text for the outline of the base.
+    
+    %parameters pulled from array, needed for bolt holes
+    d = 0.112; %bolt diameter from array
+    L = .25; %bolt length from array
+    T = .109375; %nut thickness from array
+    W = .3125; %nut width from array
+    boxw = w; % box width from array, 4
+    boxl = l; % box length from array
+    nc = 3; %number of cuts from array
+    tm = t; %thickness of material, .125
+    
+    [XR,YR] = Right_Hole(d, L, T, W, boxw, boxl, tm);
+    [XM,YM] = Middle_Hole(d, L, T, W, boxw, boxl, tm);
+    [XL,YL] = Left_Hole(d, L, T, W, boxw, boxl, tm);
+    
+    if n == 1
+        for i = 1:1:length(XM)
+            texti=['<circle cx="',num2str(XM(i)),'" cy="',num2str(YM(i))];
+            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textk=['stroke-width="0.01" fill="none" />\n'];
+            texth=[texti,textj,textk];
+            text=[text,texth];
+        end
+        % This creates a hole from the location coordinates.
+    end
+end
