@@ -1,3 +1,19 @@
+% ************************************************
+% 
+% Project: Make-A-Box
+% File: Middle_Fastner
+% Class: Digital Manufacturing
+% Date: 27th Jan 2017
+% Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
+%
+% Aim: To output an svg file that can be used on a laser-cutter
+% to create a box that just needs to be assembled. The user can 
+% input parameters to vary the size of the box.
+%
+% Middle_Fastner creates the coordinates for the fastner on the right.
+%
+% *************************************************
+
 function [ XM, YM ] = Middle_Fastner( d, l, t, w, boxw,tm)
     %cutting for width faces
     c2 = boxw/2; %center of middle cut
