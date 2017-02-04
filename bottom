@@ -49,12 +49,55 @@ function[text] = bottom(h,w,l,t,n)
     
     if n == 1
         for i = 1:1:length(XM)
-            texti=['<circle cx="',num2str(XM(i)),'" cy="',num2str(YM(i))];
+            texti=['<circle cx="',num2str(XM(i)+spac),'" cy="',num2str(YM(i)+2*h)];
             textj=['" r="',num2str(d/2),'" stroke="red" '];
             textk=['stroke-width="0.01" fill="none" />\n'];
             texth=[texti,textj,textk];
             text=[text,texth];
         end
-        % This creates a hole from the location coordinates.
+        % This creates a hole in the middle of each side.
     end
+    
+    if n == 2
+        for i = 1:1:length(XL)
+            texti=['<circle cx="',num2str(XL(i)+spac),'" cy="',num2str(YL(i)+2*h)];
+            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textk=['stroke-width="0.01" fill="none" />\n'];
+            texth=[texti,textj,textk];
+            text=[text,texth];
+        end
+        for i = 1:1:length(XR)
+            texti=['<circle cx="',num2str(XR(i)+spac),'" cy="',num2str(YR(i)+2*h)];
+            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textk=['stroke-width="0.01" fill="none" />\n'];
+            texth=[texti,textj,textk];
+            text=[text,texth];
+        end
+    end
+        % This creates two holes in each side.
+        
+    if n == 2
+        for i = 1:1:length(XL)
+            texti=['<circle cx="',num2str(XL(i)+spac),'" cy="',num2str(YL(i)+2*h)];
+            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textk=['stroke-width="0.01" fill="none" />\n'];
+            texth=[texti,textj,textk];
+            text=[text,texth];
+        end
+        for i = 1:1:length(XM)
+            texti=['<circle cx="',num2str(XM(i)+spac),'" cy="',num2str(YM(i)+2*h)];
+            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textk=['stroke-width="0.01" fill="none" />\n'];
+            texth=[texti,textj,textk];
+            text=[text,texth];
+        end
+        for i = 1:1:length(XR)
+            texti=['<circle cx="',num2str(XR(i)+spac),'" cy="',num2str(YR(i))];
+            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textk=['stroke-width="0.01" fill="none" />\n'];
+            texth=[texti,textj,textk];
+            text=[text,texth];
+        end
+    end
+    % This creates three holes in each side.
 end
