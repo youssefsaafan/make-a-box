@@ -76,7 +76,7 @@ function[text] = bottom(h,w,l,t,n)
     end
         % This creates two holes in each side.
         
-    if n == 2
+    if n == 3
         for i = 1:1:length(XL)
             texti=['<circle cx="',num2str(XL(i)+spac),'" cy="',num2str(YL(i)+2*h)];
             textj=['" r="',num2str(d/2),'" stroke="red" '];
