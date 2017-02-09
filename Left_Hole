@@ -25,8 +25,8 @@ function [ XL, YL ] = Left_Hole( d, l, t, w, boxw, boxl, tm)
     %y-coordinates
     y1 = tm/2;
     y3 = c1;
-    y5 = boxw-c1;
-    y7 = boxw-(tm/2);
+    y5 = boxl-c1;
+    y7 = boxl-(tm/2);
     %Arrays of first set of coordinates
     XL = [x1 x3 x5 x7];
     YL = [y1 y3 y5 y7];
