@@ -16,7 +16,7 @@
 
 function [ XL, YL ] = Left_Hole( d, l, t, w, boxw, boxl, tm)
     %cutting for width faces
-    c1 = t + 2*tm; %center of left hole
+    c1 = t + tm; %center of left hole
     %x-coordinates
     x1 = c1;
     x3 = tm/2;
