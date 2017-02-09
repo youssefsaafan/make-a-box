@@ -16,26 +16,29 @@
 
 function [XR, YR ] = Right_Hole( d, l, t, w, boxw, boxl, tm )
     %cutting for width faces
+    c1 = t + tm;
     c3 = boxw - (t + tm); %center of right hole
     %x-cooridinates
-    x1 = c3 - d/2;
-    x2 = x1;
-    x3 = c3 - w/2;
-    x4 = x3;
-    x5 = c3 + (w/2);
-    x6 = x5;
-    x7 = c3 + (d/2);
-    x8 = x7;
+    x1 = boxw - tm/2;
+    %x2 = x1;
+    x3 = boxw - tm/2;
+    %x4 = x3;
+    x5 = c3 - (w/2);
+    %x6 = x5;
+    x7 = c3 - (w/2);
+    %x8 = x7;
     %y-coordinates
-    y1 = c3 - d/2;
-    y2 = x1;
-    y3 = c3 - l/2;
-    y4 = x3;
-    y5 = c3 - w/2;
-    y6 = x5;
-    y7 = c3 + (d/2);
-    y8 = x7;
+    y1 = c1;
+    %y2 = x1;
+    y3 = boxl - c1;
+    %y4 = x3;
+    y5 = tm/2;
+    %y6 = x5;
+    y7 = boxl - tm/2;
+    %y8 = x7;
     %Arrays of first set of cooridinates
-    XR = [x1 x2 x3 x4 x5 x6 x7 x8];
-    YR = [y1 y2 y3 y4 y5 y6 y7 y8];
+    XR = [x1 x3 x5 x7];
+    YR = [y1 y3 y5 y7];
+    %XR = [x1 x2 x3 x4 x5 x6 x7 x8];
+    %YR = [y1 y2 y3 y4 y5 y6 y7 y8];
 end
