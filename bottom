@@ -3,7 +3,7 @@
 % Project: Make-A-Box
 % File: Bottom
 % Class: Digital Manufacturing
-% Date: 27th Jan 2017
+% Date: 9th Feb 2017
 % Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
 %
 % Aim: To output an svg file that can be used on a laser-cutter
@@ -23,13 +23,13 @@ function[text] = bottom(h,w,l,t,n)
     % t is the thickness of the material
     % n is the number of fasteners per side
     
-    spac = 0.125;
+    spac = 0;
     % This designates the piece offset from the side
     % MAKE SURE THIS MATCHES WHAT IS IN LAY_OUT
     
     texta = ['<rect x="',num2str(spac),'" y="',num2str(2*h),'" width="'];
     textb = [num2str(w),'" height="',num2str(l),'" '];
-    textc = ['stroke="red" stroke-width="0.01" fill="none"/>\n'];
+    textc = ['stroke="black" stroke-width="0.01" fill="none"/>\n'];
     text = [texta,textb,textc];
     % This creates the text for the outline of the base.
     
@@ -50,7 +50,7 @@ function[text] = bottom(h,w,l,t,n)
     if n == 1
         for i = 1:1:length(XM)
             texti=['<circle cx="',num2str(XM(i)+spac),'" cy="',num2str(YM(i)+2*h)];
-            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textj=['" r="',num2str(d/2),'" stroke="green" '];
             textk=['stroke-width="0.01" fill="none" />\n'];
             texth=[texti,textj,textk];
             text=[text,texth];
@@ -61,14 +61,14 @@ function[text] = bottom(h,w,l,t,n)
     if n == 2
         for i = 1:1:length(XL)
             texti=['<circle cx="',num2str(XL(i)+spac),'" cy="',num2str(YL(i)+2*h)];
-            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textj=['" r="',num2str(d/2),'" stroke="green" '];
             textk=['stroke-width="0.01" fill="none" />\n'];
             texth=[texti,textj,textk];
             text=[text,texth];
         end
         for i = 1:1:length(XR)
             texti=['<circle cx="',num2str(XR(i)+spac),'" cy="',num2str(YR(i)+2*h)];
-            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textj=['" r="',num2str(d/2),'" stroke="green" '];
             textk=['stroke-width="0.01" fill="none" />\n'];
             texth=[texti,textj,textk];
             text=[text,texth];
@@ -79,21 +79,21 @@ function[text] = bottom(h,w,l,t,n)
     if n == 3
         for i = 1:1:length(XL)
             texti=['<circle cx="',num2str(XL(i)+spac),'" cy="',num2str(YL(i)+2*h)];
-            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textj=['" r="',num2str(d/2),'" stroke="green" '];
             textk=['stroke-width="0.01" fill="none" />\n'];
             texth=[texti,textj,textk];
             text=[text,texth];
         end
         for i = 1:1:length(XM)
             texti=['<circle cx="',num2str(XM(i)+spac),'" cy="',num2str(YM(i)+2*h)];
-            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            textj=['" r="',num2str(d/2),'" stroke="green" '];
             textk=['stroke-width="0.01" fill="none" />\n'];
             texth=[texti,textj,textk];
             text=[text,texth];
         end
         for i = 1:1:length(XR)
-            texti=['<circle cx="',num2str(XR(i)+spac),'" cy="',num2str(YR(i))];
-            textj=['" r="',num2str(d/2),'" stroke="red" '];
+            texti=['<circle cx="',num2str(XR(i)+spac),'" cy="',num2str(YR(i)+2*h)];
+            textj=['" r="',num2str(d/2),'" stroke="green" '];
             textk=['stroke-width="0.01" fill="none" />\n'];
             texth=[texti,textj,textk];
             text=[text,texth];
@@ -101,3 +101,4 @@ function[text] = bottom(h,w,l,t,n)
     end
     % This creates three holes in each side.
 end
+
