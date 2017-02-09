@@ -19,23 +19,15 @@ function [XR, YR ] = Right_Hole( d, l, t, w, boxw, boxl, tm )
     c1 = t + tm;
     c3 = boxw - (t + tm); %center of right hole
     %x-cooridinates
-    x1 = boxw - tm/2;
-    %x2 = x1;
+    x1 = c3;
     x3 = boxw - tm/2;
-    %x4 = x3;
-    x5 = c3 - (w/2);
-    %x6 = x5;
-    x7 = c3 - (w/2);
-    %x8 = x7;
+    x5 = x3;
+    x7 = x1;
     %y-coordinates
-    y1 = c1;
-    %y2 = x1;
-    y3 = boxl - c1;
-    %y4 = x3;
-    y5 = tm/2;
-    %y6 = x5;
+    y1 = tm/2;
+    y3 = c1;
+    y5 = boxl-c1;
     y7 = boxl - tm/2;
-    %y8 = x7;
     %Arrays of first set of cooridinates
     XR = [x1 x3 x5 x7];
     YR = [y1 y3 y5 y7];
