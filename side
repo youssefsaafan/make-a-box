@@ -3,14 +3,14 @@
 % Project: Make-A-Box
 % File: Side
 % Class: Digital Manufacturing
-% Date: 27th Jan 2017
+% Date: 9th Feb 2017
 % Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
 %
 % Aim: To output an svg file that can be used on a laser-cutter
 % to create a box that just needs to be assembled. The user can 
 % input parameters to vary the size of the box.
 %
-% Side outputs the text for one side of the box.
+% Side outputs the coordinates for one side of the box.
 %
 % *************************************************
 
@@ -66,9 +66,9 @@ function[L] = side(t,h,w,n)
   nc = 3; %number of cuts from array
   tm = 3*t; %thickness of material, .125
 
-  [XR, YR] = Right_Fastner( d, l, T, W, boxw, boxl, tm );
-  [XM, YM] = Middle_Fastner( d, l, T, W, boxw,tm);
-  [XL, YL] = Left_Fastner( d, l, T, W, boxw, boxl, tm);
+  [XR, YR] = Right_Fastener( d, l, T, W, boxw, boxl, tm );
+  [XM, YM] = Middle_Fastener( d, l, T, W, boxw,tm);
+  [XL, YL] = Left_Fastener( d, l, T, W, boxw, boxl, tm);
   % These generate the coordinates for the nut and bolt cut-outs.
   
   if n == 1
@@ -77,35 +77,35 @@ function[L] = side(t,h,w,n)
           L = [L;[XM(i),(h-t-YM(i))]];
       end
   end
-  % This inserts the fastner cut-out for one fastner.
+  % This inserts the fastener cut-out for one fastener.
   
   if n == 2
       for i = (length(XR)):-1:1
           L = [L;[XR(i),(h-t-YR(i))]];
       end
-      % This adds the right fastner.
+      % This adds the right fastener.
       for i = (length(XL)):-1:1
           L = [L;[XL(i),(h-t-YL(i))]];
       end
-      % This adds the left fastner.
+      % This adds the left fastener.
   end
-  % This inserts the fastner cut-outs for two fastners.
+  % This inserts the fastener cut-outs for two fasteners.
   
   if n == 3
       for i = (length(XR)):-1:1
           L = [L;[XR(i),(h-t-YR(i))]];
       end
-      % This adds the right fastner.
+      % This adds the right fastener.
       for i = (length(XM)):-1:1
           L = [L;[XM(i),(h-t-YM(i))]];
       end
-      % This adds the middle fastner.
+      % This adds the middle fastener.
       for i = (length(XL)):-1:1
           L = [L;[XL(i),(h-t-YL(i))]];
       end
-      % This adds the left fastner.
+      % This adds the left fastener.
   end
-  % This inserts the fastner cut-outs for three fastners.
+  % This inserts the fastener cut-outs for three fasteners.
   
   L = [L;[t,h-t]];
   % This adds the point of the final coordinate.
