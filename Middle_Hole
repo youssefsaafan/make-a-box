@@ -17,25 +17,27 @@
 function [ XM, YM ] = Middle_Hole( d, l, t, w, boxw,boxl,tm)
     %cutting for width faces
     c2 = boxw/2; %center of middle hole
-    %x cooridinates
-    x1 = c2 - d/2;
-    x2 = x1;
-    x3 = c2 - w/2;
-    x4 = x3;
-    x5 = c2 + (w/2);
-    x6 = x5;
-    x7 = c2 + (d/2);
-    x8 = x7;
+    %x coordinates
+    x1 = tm/2;
+    %x2 = x1;
+    x3 = boxw - tm/2;
+    %x4 = x3;
+    x5 = c2;
+    %x6 = x5;
+    x7 = c2;
+    %x8 = x7;
     %y-coordinates
-    y1 = c2 - d/2;
-    y2 = y1;
-    y3 = c2- l/2;
-    y4 = y3;
-    y5 = c2 + (l/2);
-    y6 = y5;
-    y7 = c2 + (d/2);
-    y8 = y7;
-    %Arrays of Middle set of cooridinates
-    XM = [x1 x2 x3 x4 x5 x6 x7 x8];
-    YM = [y1 y2 y3 y4 y5 y6 y7 y8];
+    y1 = c2;
+    %y2 = y1;
+    y3 = c2;
+    %y4 = y3;
+    y5 = tm/2;
+    %y6 = y5;
+    y7 = boxl - (tm/2);
+    %y8 = y7;
+    %Arrays of Middle set of coordinates
+    XM = [x1 x3 x5 x7];
+    YM = [y1 y3 y5 y7];
+    %XM = [x1 x2 x3 x4 x5 x6 x7 x8];
+    %YM = [y1 y2 y3 y4 y5 y6 y7 y8];
 end
