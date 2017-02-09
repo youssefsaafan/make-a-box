@@ -3,14 +3,14 @@
 % Project: Make-A-Box
 % File: Middle_Hole
 % Class: Digital Manufacturing
-% Date: 27th Jan 2017
+% Date: 9th Feb 2017
 % Authors: Kyle Bauer, Yadir Lakehal, Youssef Saafan, Adelaide Young
 %
 % Aim: To output an svg file that can be used on a laser-cutter
 % to create a box that just needs to be assembled. The user can 
 % input parameters to vary the size of the box.
 %
-% Middle_Hole outputs the coordinates for holes on the right.
+% Middle_Hole outputs the coordinates for holes in the middle.
 %
 % *************************************************
 
@@ -30,6 +30,5 @@ function [ XM, YM ] = Middle_Hole( d, l, t, w, boxw,boxl,tm)
     %Arrays of Middle set of coordinates
     XM = [x1 x3 x5 x7];
     YM = [y1 y3 y5 y7];
-    %XM = [x1 x2 x3 x4 x5 x6 x7 x8];
-    %YM = [y1 y2 y3 y4 y5 y6 y7 y8];
+    
 end
