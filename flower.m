@@ -15,13 +15,15 @@ Y=round((y));
 
 
 text = ['<path d=" M ',num2str(X(1)+100),' ',num2str(Y(1)+100)];
-    % This creates the start of the text.
+    % This creates the start of the text and origin of path
 
     for i = 2:length(x)
         text_i = [' L ',num2str(X(i)+100),' ',num2str(Y(i)+100)];
         text = [text,text_i];
         i = i+1;
     end
+    % This creates lines between x-y coordinates
     
 svgText=[text,'" stroke="blue" stroke-width="1" fill="none" />'];
+    % Outputs complete svg text
 
