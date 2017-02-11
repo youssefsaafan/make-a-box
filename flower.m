@@ -19,17 +19,12 @@ function[svgText] = flower(A,B,p)
     figure;
     hold on;
 
-
     rho= 50*cos(p * theta)+50;
     polar(theta, rho); %polar plot    
-
-
-
 
     [x,y] = pol2cart(theta,rho); %polar to cartesian
     X=round((x));
     Y=round((y));
-
 
     text = ['<path d=" M ',num2str(X(1)*1/150+A),' ',num2str(Y(1)*1/150+B)];
         % This creates the start of the text and origin of path
@@ -41,7 +36,7 @@ function[svgText] = flower(A,B,p)
         end
         % This creates lines between x-y coordinates
 
-    svgText=[text,'" stroke="blue" stroke-width="0.01" fill="none" />\n'];
+    svgText=[text,'" stroke="red" stroke-width="0.01" fill="none" />\n'];
         % Outputs complete svg text
     
 end
