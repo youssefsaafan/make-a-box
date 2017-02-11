@@ -15,7 +15,7 @@
 %
 % *************************************************
 
-function[text] = lay_out(t,h,w,l,n)
+function[text] = lay_out(t,h,w,l,n,f,p)
     % This function creates one text/svg code for the whole box.
     
     % t is the thickness of the material
@@ -23,6 +23,8 @@ function[text] = lay_out(t,h,w,l,n)
     % w is the width of the box
     % l is the length of the box
     % n is the number of bolts on each side of the box
+    % f determines whether there is engraving or not
+    % p determines the number of petals of the engraving
 
     % If the box is h x w x l, where h is the height
     S1 = side(t,h,w,n);
@@ -67,6 +69,12 @@ function[text] = lay_out(t,h,w,l,n)
     
     text5 = bottom(h,w,l,t,n);
     % This creates a line of text for the bottom of the box.
+    
+    if f == 1
+        F = flower(w/2,(2*h+l/2),p);
+        text5 = [text5,F];
+    end
+  % This adds engraving to the bottom.
     
     text = [text1,text2,text3,text4,text5];
     % This combines the text
