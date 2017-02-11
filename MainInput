@@ -30,6 +30,31 @@ function MainInput()
   p=str2double(answer{8});
   % These prompt the user to enter values determining their box choice.
   
+  msg1 = 'Error: You have exceeded the material area. Please reduce your dimensions.';
+  if h+h+l > 12
+      error(msg1)
+  end
+  if w+l > 12
+      error(msg1)
+  end
+  msg4 = 'Error: That box is too small. Please increase your dimensions.';
+  if h < 1 || w < 1 || l < 1
+      error(msg4)
+  end
+  % This returns an error message for the dimensions.
+  
+  msg2 = 'Error: That is not a valid number of bolts. Please enter 1,2 or 3.';
+  if n > 3 || n < 1 || floor(n) ~= n
+      error(msg2)
+  end
+  % This returns an error message for the # of bolts input.
+  
+  msg3 = 'Error: That is not a valid value for Engraving. Please enter 1 or 0.';
+  if f ~= 1 && f ~= 0
+      error(msg3)
+  end
+  % This returns an error message for the engraving input.
+  
   write_to_file(lay_out(t,h,w,l,n,f,p))
   % This writes an svg file for the box.
   
