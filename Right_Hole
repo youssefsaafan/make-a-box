@@ -18,16 +18,17 @@ function [XR, YR] = Right_Hole( d, l, t, w, boxw, boxl, tm )
     %cutting for width faces
     c1 = t + tm;
     c3 = boxw - (t + tm); %center of right hole
+    ta = tm/3;
     %x-coordinates
     x1 = c3;
-    x3 = boxw - tm/2;
+    x3 = boxw - ta/2;
     x5 = x3;
     x7 = x1;
     %y-coordinates
-    y1 = tm/2;
+    y1 = ta/2;
     y3 = c1;
     y5 = boxl-c1;
-    y7 = boxl - tm/2;
+    y7 = boxl - ta/2;
     %Arrays of first set of coordinates
     XR = [x1 x3 x5 x7];
     YR = [y1 y3 y5 y7];
