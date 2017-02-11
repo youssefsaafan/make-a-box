@@ -108,5 +108,7 @@ function[L] = side(t,h,w,n)
   % This inserts the fastener cut-outs for three fasteners.
   
   L = [L;[t,h-t]];
-  % This adds the point of the final coordinate.
+  L = [L;[t,(c-2)*m]];
+  % This adds the point of the final coordinates.
+  
  end
