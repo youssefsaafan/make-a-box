@@ -10,15 +10,15 @@
 % to create a box that just needs to be assembled. The user can 
 % input parameters to vary the size of the box.
 %
-% Coordinates turns a list into an svg polygon.
+% Coordinates turns a list into an svg polyline.
 %
 % *************************************************
 
 function[text] = c2s(L)
     % This function inserts a list of numbers into text
-    % creating a polygon in svg.
+    % creating a polyline in svg.
     
-    text = ['<polygon points="',num2str(L(1,1)),',',num2str(L(1,2))];
+    text = ['<polyline points="',num2str(L(1,1)),',',num2str(L(1,2))];
     % This creates the start of the text.
     
     for i = 2:length(L)
